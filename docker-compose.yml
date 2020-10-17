@@ -19,17 +19,18 @@ services:
   phpmyadmin:
     container_name: kurteyki-pma
     image: phpmyadmin/phpmyadmin
-    hostname: pma
-    ports:
-      - 8000:80
+    hostname: kurteyki-pma
     environment:
       MYSQL_USER: app
       MYSQL_PASSWORD: app
       MYSQL_ROOT_PASSWORD: root
+    networks:
+      - default
 
   app:
     container_name: kurteyki-app
     image: kurteyki-lms
+    hostname: kurteyki
     build:
       context: .
       dockerfile: docker/Dockerfile
@@ -37,5 +38,7 @@ services:
       - 8080:8080
     volumes:
       - .:/var/www/html
+      - ./docker/config/nginx.conf:/etc/nginx/nginx.conf
+      - ./docker/config/app.conf:/etc/nginx/conf.d/app.conf
     networks:
       - default

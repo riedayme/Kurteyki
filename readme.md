@@ -40,41 +40,30 @@ Fitur Blog yang tersedia
 
 Intruksi dibawah ini akan ***mengarahkan anda untuk menjalankan project pada komputer anda (local)*** dan ditujukan hanya untuk melakukan development dan testing saja.
 
-### Menjalankan Aplikasi Menggunakan XAMPP
+### Konfigurasi
+1. Rename / Copy **config.example.php** menjadi **config.php**
+2. Atur konfigurasi sesuai yang diperlukan.
 
-```
-Pastikan anda sudah menjalankan module xampp yaitu apache server dan mysql.
-***Download Project ini dan extract*** di folder htdocs yang ada pada xampp.
-```
+### Menjalankan Aplikasi
+#### Menjalankan Aplikasi Menggunakan XAMPP
 
-***Buat Database dengan nama kurteyki*** di phpmyadmin, silahkan akses url dibawah ini untuk membuka phpmyadmin :
+1. Pastikan anda sudah menjalankan module xampp yaitu apache server dan mysql.
+2. Unduh projek ini dan _extract_ ke folder htdocs yang ada pada xampp.
+3. Buat _database_ dengan nama **kurteyki**.
+4. Import ***kurteyki.sql*** ke dalam _database_ **kurteyki**.
+5. Akses aplikasi melalui [http://localhost/kurteyki](http://localhost/kurteyki)
 
-```
-http://localhost/phpmyadmin
-```
 
-Kemudian ***import kurteyki.sql*** yang ada ddidalam project ini
-
-Langkah kedua ***akses url dibawah ini*** :
-
-```
-http://localhost/kurteyki
-```
-
-### Menjalankan Aplikasi Menggunakan DOCKER
+#### Menjalankan Aplikasi Menggunakan DOCKER
 ```
 docker-compose up -d --build
 ```
 
 Akses aplikasi melalui:
-```
-http://localhost:8080/
-```
 
-Akses Databasee melalui PHPMYADMIN
-```
-http://localhost:8000/
-```
+[http://localhost:8080/](http://localhost:8080/) untuk aplikasi
+
+[http://localhost:8080/phpmyadmin](http://localhost:8080/phpmyadmin) untuk akses _database_ melalui _phpmyadmin_
 
 
 ### Lain-lain
@@ -99,11 +88,12 @@ http://localhost:8000/
 username: kurteyki
 password: kurteyki
 
-# Akses DB melalui phpmyadmin
+# Akses DB melalui phpmyadmin (untuk docker)
 username: app
 password: app
 
 ```
+
 
 ## Sumber Inspirasi
 
@@ -113,14 +103,13 @@ password: app
 * skillacademy.com (template lms)
 * cms.botble.com (module pengaturan smtp dan statistik visitor)
 
-## List Pekerjaan
-
-* No Works This end.
 
 ## Bug Aplikasi
 
-* language english
+* beberapa bagian bahasa masih menggunakan Inggris
 * not perfect payment gateway
+* login phpmyadmin dengan docker tidak redirect langsung ke phpmyadmin
+
 
 ## Change Log
 
